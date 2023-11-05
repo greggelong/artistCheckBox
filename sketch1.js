@@ -69,7 +69,7 @@ function setup() {
       artist["artisticMessage-environmentalSustainability"].forEach(value => uniqueArtisticMessageEnvironmentalSustainability.add(value));
     }
     if (artist["aesthetics-colorPalette"]) {
-      uniqueAestheticsColorPalette.add(artist["aesthetics-colorPalette"]);
+      uniqueAestheticsColorPalette.add(artist["aesthetics-colorPalette"]);  // these are just add as they are not arrays but strings
     }
     if (artist["aesthetics-texturePattern"]) {
       uniqueAestheticsTexturePattern.add(artist["aesthetics-texturePattern"]);
@@ -190,7 +190,7 @@ function createList() {
         selectedArtisticMessageCulturalCritique.every(value => artist["artisticMessage-culturalCritique"] && artist["artisticMessage-culturalCritique"].includes(value)) &&
         selectedArtisticMessageIdentityRepresentation.every(value => artist["artisticMessage-identityRepresentation"] && artist["artisticMessage-identityRepresentation"].includes(value)) &&
         selectedArtisticMessageEnvironmentalSustainability.every(value => artist["artisticMessage-environmentalSustainability"] && artist["artisticMessage-environmentalSustainability"].includes(value)) &&
-        selectedAestheticsColorPalette.includes(artist["aesthetics-colorPalette"]) &&
+        selectedAestheticsColorPalette.includes(artist["aesthetics-colorPalette"]) &&   /// these use include because in the data they are not arrays but strings
         selectedAestheticsTexturePattern.includes(artist["aesthetics-texturePattern"]) &&
         selectedAestheticsCompositionArrangement.includes(artist["aesthetics-compositionArrangement"]) &&
         selectedAestheticsScaleProportion.includes(artist["aesthetics-scaleProportion"]) &&

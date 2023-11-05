@@ -26,3 +26,14 @@ Sure, here's the updated list:
 1. **Inclusive Matching:** Any selected property allows for inclusion.
 2. **Strict Matching:** All selected properties must match.
 3. **Partial Matching with Optional Properties:** All selected properties must match, but other properties can be present without affecting the match.
+
+
+after a lot of work I found that some of the objects in the data objects the key value pairs have values that are strings not arrays 
+
+and this causes some problems when handling the searching logic
+
+I messed it up but reverted back.  If I am going to write a big code thing like this I need to start using branches
+
+See some notes in the code
+
+inclusive matching and strict matching are working but partial matching is not working
