@@ -100,6 +100,8 @@ function setup() {
   createCheckboxOptions(uniqueAestheticsCompositionArrangement, selectedAestheticsCompositionArrangement, "Aesthetics - Composition/Arrangement");
   createCheckboxOptions(uniqueAestheticsScaleProportion, selectedAestheticsScaleProportion, "Aesthetics - Scale/Proportion");
   createCheckboxOptions(uniqueAestheticsVisualLanguage, selectedAestheticsVisualLanguage, "Aesthetics - Visual Language");
+  createP("------------------")
+  createP("CLICK TO CHOOSE, can click multiple")
 
   mybutton = createButton("Inclusive Matching Artists");
   mybutton.mouseClicked(createList);
