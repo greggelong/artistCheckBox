@@ -37,3 +37,6 @@ I messed it up but reverted back.  If I am going to write a big code thing like 
 See some notes in the code
 
 inclusive matching and strict matching are working but partial matching is not working
+
+
+You want to ensure that an artist is only pushed to the list if they have at least one selected quality from each category and no qualities from other artists. 
