@@ -31,6 +31,7 @@ let selectedAestheticsScaleProportion = [];
 let selectedAestheticsVisualLanguage = [];
 
 let mybutton;
+let mybutton2;
 
 function setup() {
   noCanvas();
@@ -99,8 +100,11 @@ function setup() {
   createCheckboxOptions(uniqueAestheticsScaleProportion, selectedAestheticsScaleProportion, "Aesthetics - Scale/Proportion");
   createCheckboxOptions(uniqueAestheticsVisualLanguage, selectedAestheticsVisualLanguage, "Aesthetics - Visual Language");
 
-  mybutton = createButton("Click for all matches");
+  mybutton = createButton("Find artists with Any Matches");
   mybutton.mouseClicked(createList);
+
+  mybutton2 = createButton("Find artists Exact Matches");
+  mybutton2.mouseClicked(createList2);
 }
 
 function createCheckboxOptions(options, selected, label) {
@@ -156,6 +160,49 @@ function createList() {
       }
     } else {
       let noMatchMessage = createElement('p', 'No artists match the selected criteria.');
+      noMatchMessage.parent(document.body);
+    }
+  }
+
+
+
+
+  function createList2() {
+    // Create an array to store artists that match all selected criteria
+    let matchingArtists = [];
+  
+    for (const artist of artists) {
+      // Check if all selected properties match with the artist
+      if (
+        selectedArtisticPracticeMediums.every(value => artist["artisticPractice-mediums"] && artist["artisticPractice-mediums"].includes(value)) &&
+        selectedArtisticPracticeGenreStyle.includes(artist["artisticPractice-genreStyle"]) &&
+        selectedArtisticPracticeTechniquesProcesses.every(value => artist["artisticPractice-techniquesProcesses"] && artist["artisticPractice-techniquesProcesses"].includes(value)) &&
+        selectedArtisticPracticeThemesConcepts.every(value => artist["artisticPractice-themesConcepts"] && artist["artisticPractice-themesConcepts"].includes(value)) &&
+        selectedArtisticPracticeInfluencesReferences.every(value => artist["artisticPractice-influencesReferences"] && artist["artisticPractice-influencesReferences"].includes(value)) &&
+        selectedArtisticMessageSocialCommentary.every(value => artist["artisticMessage-socialCommentary"] && artist["artisticMessage-socialCommentary"].includes(value)) &&
+        selectedArtisticMessagePoliticalActivismCause.every(value => artist["artisticMessage-politicalActivismCause"] && artist["artisticMessage-politicalActivismCause"].includes(value)) &&
+        selectedArtisticMessageCulturalCritique.every(value => artist["artisticMessage-culturalCritique"] && artist["artisticMessage-culturalCritique"].includes(value)) &&
+        selectedArtisticMessageIdentityRepresentation.every(value => artist["artisticMessage-identityRepresentation"] && artist["artisticMessage-identityRepresentation"].includes(value)) &&
+        selectedArtisticMessageEnvironmentalSustainability.every(value => artist["artisticMessage-environmentalSustainability"] && artist["artisticMessage-environmentalSustainability"].includes(value)) &&
+        selectedAestheticsColorPalette.includes(artist["aesthetics-colorPalette"]) &&
+        selectedAestheticsTexturePattern.includes(artist["aesthetics-texturePattern"]) &&
+        selectedAestheticsCompositionArrangement.includes(artist["aesthetics-compositionArrangement"]) &&
+        selectedAestheticsScaleProportion.includes(artist["aesthetics-scaleProportion"]) &&
+        selectedAestheticsVisualLanguage.includes(artist["aesthetics-visualLanguage"])
+      ) {
+        matchingArtists.push(artist);
+      }
+    }
+  
+    // Display the list of matching artists
+    if (matchingArtists.length > 0) {
+      let artistList = createElement('ul');
+      for (const artist of matchingArtists) {
+        let listItem = createElement('li', artist.personalInformation.name);
+        listItem.parent(artistList);
+      }
+    } else {
+      let noMatchMessage = createElement('p', 'No artists match all the selected criteria.');
       noMatchMessage.parent(document.body);
     }
   }
