@@ -193,7 +193,7 @@ function setup() {
   mybutton2 = createButton("Strict Matching Artists");
   mybutton2.mouseClicked(createList2);
 
-  mybutton3 = createButton("Partial Matching Artists");
+  mybutton3 = createButton("Loose Matching Artists");
   mybutton3.mouseClicked(createList3);
 }
 
