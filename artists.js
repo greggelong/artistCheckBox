@@ -86,11 +86,10 @@ const artists = [
           "Beauty",
           "Mortality",
           "Relationship between humans and nature",
-        ],
-        "artisticPractice-influencesReferences": [
           "Classical Greek and Roman art",
           "Scientific theories and advancements",
         ],
+         
         "artisticMessage-socialCommentary": [
           "Societal issues such as consumerism",
           "Celebrity culture",
@@ -118,7 +117,62 @@ const artists = [
         "aesthetics-compositionArrangement": "Thought-provoking and visually striking compositions, playing with scale, balance, and juxtaposition",
         "aesthetics-scaleProportion": "Range from small-scale sculptures to large installations, exploring different proportions and scales",
         "aesthetics-visualLanguage": "Combining elements of realism, abstraction, and symbolism to convey artistic message",
-      }
-      
+      },
+
+
+      ///
+
+      {
+        personalInformation: {
+          name: "Adel Abdessemed",
+          gender: "Male",
+          raceEthnicity: "Algerian",
+          nationality: "Algerian",
+          dateOfBirth: "Born March 2, 1971",
+          placeOfBirth: "Constantine, Algeria (place of birth unknown)",
+        },
+        "artisticPractice-mediums": [
+          "Sculpture",
+          "Installation",
+          "Video",
+          "Drawing",
+          "Performance",
+        ],
+        "artisticPractice-genreStyle": "Contemporary art, conceptual art",
+        "artisticPractice-techniquesProcesses": [
+          "Diverse techniques and processes depending on the medium",
+        ],
+        "artisticPractice-themesConcepts": [
+          "Violence",
+          "Power dynamics",
+          "Cultural identity",
+          "Human condition",
+        ],
+        "artisticMessage-socialCommentary": [
+          "Serves as a commentary on social issues",
+          "Challenges prevailing norms",
+        ],
+        "artisticMessage-politicalActivismCause": [
+          "Critical engagement with political systems and power structures",
+        ],
+        "artisticMessage-culturalCritique": [
+          "Addresses cultural norms and traditions",
+          "Challenges and reinterprets them",
+        ],
+        "artisticMessage-identityRepresentation": [
+          "Explores notions of personal and cultural identity",
+          "Questions established representations",
+        ],
+        "artisticMessage-environmentalSustainability": [
+          "May touch upon environmental concerns indirectly through exploration of power dynamics and human impact",
+        ],
+        "aesthetics-colorPalette": "Varies depending on the artwork, ranging from vibrant and bold to more subdued tones",
+        "aesthetics-texturePattern": "Incorporates a variety of textures and patterns depending on materials and techniques used",
+        "aesthetics-compositionArrangement": "Often dynamic compositions and arrangements evoking movement or tension",
+        "aesthetics-scaleProportion": "Can range from small-scale pieces to large installations",
+        "aesthetics-visualLanguage": "Characterized by rawness, symbolism, and a blend of figurative and abstract elements",
+      },
   ];
+      
+  
   

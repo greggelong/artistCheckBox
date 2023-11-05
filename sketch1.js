@@ -2,7 +2,7 @@ let uniqueArtisticPracticeMediums = new Set();
 let uniqueArtisticPracticeGenreStyle = new Set();
 let uniqueArtisticPracticeTechniquesProcesses = new Set();
 let uniqueArtisticPracticeThemesConcepts = new Set();
-let uniqueArtisticPracticeInfluencesReferences = new Set();
+//let uniqueArtisticPracticeInfluencesReferences = new Set();
 let uniqueArtisticMessageSocialCommentary = new Set();
 let uniqueArtisticMessagePoliticalActivismCause = new Set();
 let uniqueArtisticMessageCulturalCritique = new Set();
@@ -18,7 +18,7 @@ let selectedArtisticPracticeMediums = [];
 let selectedArtisticPracticeGenreStyle = [];
 let selectedArtisticPracticeTechniquesProcesses = [];
 let selectedArtisticPracticeThemesConcepts = [];
-let selectedArtisticPracticeInfluencesReferences = [];
+//let selectedArtisticPracticeInfluencesReferences = [];
 let selectedArtisticMessageSocialCommentary = [];
 let selectedArtisticMessagePoliticalActivismCause = [];
 let selectedArtisticMessageCulturalCritique = [];
@@ -30,8 +30,9 @@ let selectedAestheticsCompositionArrangement = [];
 let selectedAestheticsScaleProportion = [];
 let selectedAestheticsVisualLanguage = [];
 
-let mybutton;
-let mybutton2;
+let mybutton; //inclusive matching
+let mybutton2; //strict matching
+let mybutton3; // partial matching with optional Properties
 
 function setup() {
   noCanvas();
@@ -49,9 +50,9 @@ function setup() {
     if (artist["artisticPractice-themesConcepts"]) {
       artist["artisticPractice-themesConcepts"].forEach(value => uniqueArtisticPracticeThemesConcepts.add(value));
     }
-    if (artist["artisticPractice-influencesReferences"]) {
-      artist["artisticPractice-influencesReferences"].forEach(value => uniqueArtisticPracticeInfluencesReferences.add(value));
-    }
+    //if (artist["artisticPractice-influencesReferences"]) {
+     // artist["artisticPractice-influencesReferences"].forEach(value => uniqueArtisticPracticeInfluencesReferences.add(value));
+    //}
     if (artist["artisticMessage-socialCommentary"]) {
       artist["artisticMessage-socialCommentary"].forEach(value => uniqueArtisticMessageSocialCommentary.add(value));
     }
@@ -88,7 +89,7 @@ function setup() {
   createCheckboxOptions(uniqueArtisticPracticeGenreStyle, selectedArtisticPracticeGenreStyle, "Artistic Practice - Genre Style");
   createCheckboxOptions(uniqueArtisticPracticeTechniquesProcesses, selectedArtisticPracticeTechniquesProcesses, "Artistic Practice - Techniques/Processes");
   createCheckboxOptions(uniqueArtisticPracticeThemesConcepts, selectedArtisticPracticeThemesConcepts, "Artistic Practice - Themes/Concepts");
-  createCheckboxOptions(uniqueArtisticPracticeInfluencesReferences, selectedArtisticPracticeInfluencesReferences, "Artistic Practice - Influences/References");
+  //createCheckboxOptions(uniqueArtisticPracticeInfluencesReferences, selectedArtisticPracticeInfluencesReferences, "Artistic Practice - Influences/References");
   createCheckboxOptions(uniqueArtisticMessageSocialCommentary, selectedArtisticMessageSocialCommentary, "Artistic Message - Social Commentary");
   createCheckboxOptions(uniqueArtisticMessagePoliticalActivismCause, selectedArtisticMessagePoliticalActivismCause, "Artistic Message - Political Activism/Cause");
   createCheckboxOptions(uniqueArtisticMessageCulturalCritique, selectedArtisticMessageCulturalCritique, "Artistic Message - Cultural Critique");
@@ -100,11 +101,14 @@ function setup() {
   createCheckboxOptions(uniqueAestheticsScaleProportion, selectedAestheticsScaleProportion, "Aesthetics - Scale/Proportion");
   createCheckboxOptions(uniqueAestheticsVisualLanguage, selectedAestheticsVisualLanguage, "Aesthetics - Visual Language");
 
-  mybutton = createButton("Find artists with Any Matches");
+  mybutton = createButton("Inclusive Matching Artists");
   mybutton.mouseClicked(createList);
 
-  mybutton2 = createButton("Find artists Exact Matches");
+  mybutton2 = createButton("Strict Matching Artists");
   mybutton2.mouseClicked(createList2);
+
+  mybutton3 = createButton("Partial Matching Artists");
+  mybutton3.mouseClicked(createList3);
 }
 
 function createCheckboxOptions(options, selected, label) {
@@ -136,7 +140,7 @@ function createList() {
         selectedArtisticPracticeGenreStyle.includes(artist["artisticPractice-genreStyle"]) ||
         selectedArtisticPracticeTechniquesProcesses.some(value => artist["artisticPractice-techniquesProcesses"] && artist["artisticPractice-techniquesProcesses"].includes(value)) ||
         selectedArtisticPracticeThemesConcepts.some(value => artist["artisticPractice-themesConcepts"] && artist["artisticPractice-themesConcepts"].includes(value)) ||
-        selectedArtisticPracticeInfluencesReferences.some(value => artist["artisticPractice-influencesReferences"] && artist["artisticPractice-influencesReferences"].includes(value)) ||
+        //selectedArtisticPracticeInfluencesReferences.some(value => artist["artisticPractice-influencesReferences"] && artist["artisticPractice-influencesReferences"].includes(value)) ||
         selectedArtisticMessageSocialCommentary.some(value => artist["artisticMessage-socialCommentary"] && artist["artisticMessage-socialCommentary"].includes(value)) ||
         selectedArtisticMessagePoliticalActivismCause.some(value => artist["artisticMessage-politicalActivismCause"] && artist["artisticMessage-politicalActivismCause"].includes(value)) ||
         selectedArtisticMessageCulturalCritique.some(value => artist["artisticMessage-culturalCritique"] && artist["artisticMessage-culturalCritique"].includes(value)) ||
@@ -178,7 +182,7 @@ function createList() {
         selectedArtisticPracticeGenreStyle.includes(artist["artisticPractice-genreStyle"]) &&
         selectedArtisticPracticeTechniquesProcesses.every(value => artist["artisticPractice-techniquesProcesses"] && artist["artisticPractice-techniquesProcesses"].includes(value)) &&
         selectedArtisticPracticeThemesConcepts.every(value => artist["artisticPractice-themesConcepts"] && artist["artisticPractice-themesConcepts"].includes(value)) &&
-        selectedArtisticPracticeInfluencesReferences.every(value => artist["artisticPractice-influencesReferences"] && artist["artisticPractice-influencesReferences"].includes(value)) &&
+        //selectedArtisticPracticeInfluencesReferences.every(value => artist["artisticPractice-influencesReferences"] && artist["artisticPractice-influencesReferences"].includes(value)) &&
         selectedArtisticMessageSocialCommentary.every(value => artist["artisticMessage-socialCommentary"] && artist["artisticMessage-socialCommentary"].includes(value)) &&
         selectedArtisticMessagePoliticalActivismCause.every(value => artist["artisticMessage-politicalActivismCause"] && artist["artisticMessage-politicalActivismCause"].includes(value)) &&
         selectedArtisticMessageCulturalCritique.every(value => artist["artisticMessage-culturalCritique"] && artist["artisticMessage-culturalCritique"].includes(value)) &&
@@ -203,6 +207,210 @@ function createList() {
       }
     } else {
       let noMatchMessage = createElement('p', 'No artists match all the selected criteria.');
+      noMatchMessage.parent(document.body);
+    }
+  }
+/*
+  function createList3() {
+    // Create an array to store artists that partially match the selected criteria
+    let partialMatchArtists = [];
+  
+    for (const artist of artists) {
+      let isPartialMatch = false;
+  
+      // Check if any selected properties match with the artist's properties
+      if (
+        (selectedArtisticPracticeMediums.length === 0 || selectedArtisticPracticeMediums.some(value => artist["artisticPractice-mediums"].includes(value))) &&
+        (selectedArtisticPracticeGenreStyle.length === 0 || selectedArtisticPracticeGenreStyle.includes(artist["artisticPractice-genreStyle"])) &&
+        (selectedArtisticPracticeTechniquesProcesses.length === 0 || selectedArtisticPracticeTechniquesProcesses.some(value => artist["artisticPractice-techniquesProcesses"] && artist["artisticPractice-techniquesProcesses"].includes(value))) &&
+        (selectedArtisticPracticeThemesConcepts.length === 0 || selectedArtisticPracticeThemesConcepts.some(value => artist["artisticPractice-themesConcepts"] && artist["artisticPractice-themesConcepts"].includes(value))) &&
+        (selectedArtisticMessageSocialCommentary.length === 0 || selectedArtisticMessageSocialCommentary.some(value => artist["artisticMessage-socialCommentary"] && artist["artisticMessage-socialCommentary"].includes(value))) &&
+        (selectedArtisticMessagePoliticalActivismCause.length === 0 || selectedArtisticMessagePoliticalActivismCause.some(value => artist["artisticMessage-politicalActivismCause"] && artist["artisticMessage-politicalActivismCause"].includes(value))) &&
+        (selectedArtisticMessageCulturalCritique.length === 0 || selectedArtisticMessageCulturalCritique.some(value => artist["artisticMessage-culturalCritique"] && artist["artisticMessage-culturalCritique"].includes(value))) &&
+        (selectedArtisticMessageIdentityRepresentation.length === 0 || selectedArtisticMessageIdentityRepresentation.some(value => artist["artisticMessage-identityRepresentation"] && artist["artisticMessage-identityRepresentation"].includes(value))) &&
+        (selectedArtisticMessageEnvironmentalSustainability.length === 0 || selectedArtisticMessageEnvironmentalSustainability.some(value => artist["artisticMessage-environmentalSustainability"] && artist["artisticMessage-environmentalSustainability"].includes(value))) &&
+        (selectedAestheticsColorPalette.length === 0 || selectedAestheticsColorPalette.includes(artist["aesthetics-colorPalette"])) &&
+        (selectedAestheticsTexturePattern.length === 0 || selectedAestheticsTexturePattern.includes(artist["aesthetics-texturePattern"])) &&
+        (selectedAestheticsCompositionArrangement.length === 0 || selectedAestheticsCompositionArrangement.includes(artist["aesthetics-compositionArrangement"])) &&
+        (selectedAestheticsScaleProportion.length === 0 || selectedAestheticsScaleProportion.includes(artist["aesthetics-scaleProportion"])) &&
+        (selectedAestheticsVisualLanguage.length === 0 || selectedAestheticsVisualLanguage.includes(artist["aesthetics-visualLanguage"]))
+      ) {
+        isPartialMatch = true;
+      }
+  
+      if (isPartialMatch) {
+        partialMatchArtists.push(artist);
+      }
+    }
+  
+    if (partialMatchArtists.length > 0) {
+      let artistList = createElement('ul');
+      for (const artist of partialMatchArtists) {
+        let listItem = createElement('li', artist.personalInformation.name);
+        listItem.parent(artistList);
+      }
+    } else {
+      let noMatchMessage = createElement('p', 'No artists partially match the selected criteria.');
+      noMatchMessage.parent(document.body);
+    }
+  }
+  */
+
+  function createList3() {
+    // Create an array to store artists that partially match the selected criteria
+    let partialMatchArtists = [];
+    print(selectedArtisticMessageSocialCommentary.length )
+  
+    for (const artist of artists) {
+      let isPartialMatch = true;
+  
+      // Check if selected properties match with the artist's properties
+      if (
+        selectedArtisticPracticeMediums.length > 0 &&
+        !selectedArtisticPracticeMediums.every(value => artist["artisticPractice-mediums"].includes(value))
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticPracticeGenreStyle.length > 0 &&
+        !selectedArtisticPracticeGenreStyle.includes(artist["artisticPractice-genreStyle"])
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticPracticeTechniquesProcesses.length > 0 &&
+        !selectedArtisticPracticeTechniquesProcesses.every(value =>
+          artist["artisticPractice-techniquesProcesses"] && artist["artisticPractice-techniquesProcesses"].includes(value)
+        )
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticPracticeThemesConcepts.length > 0 &&
+        !selectedArtisticPracticeThemesConcepts.every(value =>
+          artist["artisticPractice-themesConcepts"] && artist["artisticPractice-themesConcepts"].includes(value)
+        )
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticMessageSocialCommentary.length > 0 &&
+        !selectedArtisticMessageSocialCommentary.every(value =>
+          artist["artisticMessage-socialCommentary"] && artist["artisticMessage-socialCommentary"].includes(value)
+        )
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticMessagePoliticalActivismCause.length > 0 &&
+        !selectedArtisticMessagePoliticalActivismCause.every(value =>
+          artist["artisticMessage-politicalActivismCause"] && artist["artisticMessage-politicalActivismCause"].includes(value)
+        )
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticMessageCulturalCritique.length > 0 &&
+        !selectedArtisticMessageCulturalCritique.every(value =>
+          artist["artisticMessage-culturalCritique"] && artist["artisticMessage-culturalCritique"].includes(value)
+        )
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticMessageIdentityRepresentation.length > 0 &&
+        !selectedArtisticMessageIdentityRepresentation.every(value =>
+          artist["artisticMessage-identityRepresentation"] && artist["artisticMessage-identityRepresentation"].includes(value)
+        )
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedArtisticMessageEnvironmentalSustainability.length > 0 &&
+        !selectedArtisticMessageEnvironmentalSustainability.every(value =>
+          artist["artisticMessage-environmentalSustainability"] && artist["artisticMessage-environmentalSustainability"].includes(value)
+        )
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedAestheticsColorPalette.length > 0 &&
+        !selectedAestheticsColorPalette.includes(artist["aesthetics-colorPalette"])
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedAestheticsTexturePattern.length > 0 &&
+        !selectedAestheticsTexturePattern.includes(artist["aesthetics-texturePattern"])
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedAestheticsCompositionArrangement.length > 0 &&
+        !selectedAestheticsCompositionArrangement.includes(artist["aesthetics-compositionArrangement"])
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedAestheticsScaleProportion.length > 0 &&
+        !selectedAestheticsScaleProportion.includes(artist["aesthetics-scaleProportion"])
+      ) {
+        isPartialMatch = false;
+      }
+  
+      if (
+        selectedAestheticsVisualLanguage.length > 0 &&
+        !selectedAestheticsVisualLanguage.includes(artist["aesthetics-visualLanguage"])
+      ) {
+        isPartialMatch = false;
+      }
+  
+      // Check the length of each property before applying conditions
+      if (
+        selectedArtisticPracticeMediums.length === 0 ||
+        selectedArtisticPracticeGenreStyle.length === 0 ||
+        selectedArtisticPracticeTechniquesProcesses.length === 0 ||
+        selectedArtisticPracticeThemesConcepts.length === 0 ||
+        selectedArtisticMessageSocialCommentary.length === 0 ||
+        selectedArtisticMessagePoliticalActivismCause.length === 0 ||
+        selectedArtisticMessageCulturalCritique.length === 0 ||
+        selectedArtisticMessageIdentityRepresentation.length === 0 ||
+        selectedArtisticMessageEnvironmentalSustainability.length === 0 ||
+        selectedAestheticsColorPalette.length === 0 ||
+        selectedAestheticsTexturePattern.length === 0 ||
+        selectedAestheticsCompositionArrangement.length === 0 ||
+        selectedAestheticsScaleProportion.length === 0 ||
+        selectedAestheticsVisualLanguage.length === 0
+      ) {
+        // If no properties are selected, artists should not be included
+        isPartialMatch = false;
+      }
+  
+      if (isPartialMatch) {
+        partialMatchArtists.push(artist);
+      }
+    }
+  
+    if (partialMatchArtists.length > 0) {
+      let artistList = createElement('ul');
+      for (const artist of partialMatchArtists) {
+        let listItem = createElement('li', artist.personalInformation.name);
+        listItem.parent(artistList);
+      }
+    } else {
+      let noMatchMessage = createElement('p', 'No artists partially match the selected criteria.');
       noMatchMessage.parent(document.body);
     }
   }
