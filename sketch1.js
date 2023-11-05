@@ -259,125 +259,11 @@ function createList() {
   function createList3() {
     // Create an array to store artists that partially match the selected criteria
     let partialMatchArtists = [];
-    print(selectedArtisticMessageSocialCommentary.length )
   
     for (const artist of artists) {
       let isPartialMatch = true;
   
-      // Check if selected properties match with the artist's properties
-      if (
-        selectedArtisticPracticeMediums.length > 0 &&
-        !selectedArtisticPracticeMediums.every(value => artist["artisticPractice-mediums"].includes(value))
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticPracticeGenreStyle.length > 0 &&
-        !selectedArtisticPracticeGenreStyle.includes(artist["artisticPractice-genreStyle"])
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticPracticeTechniquesProcesses.length > 0 &&
-        !selectedArtisticPracticeTechniquesProcesses.every(value =>
-          artist["artisticPractice-techniquesProcesses"] && artist["artisticPractice-techniquesProcesses"].includes(value)
-        )
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticPracticeThemesConcepts.length > 0 &&
-        !selectedArtisticPracticeThemesConcepts.every(value =>
-          artist["artisticPractice-themesConcepts"] && artist["artisticPractice-themesConcepts"].includes(value)
-        )
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticMessageSocialCommentary.length > 0 &&
-        !selectedArtisticMessageSocialCommentary.every(value =>
-          artist["artisticMessage-socialCommentary"] && artist["artisticMessage-socialCommentary"].includes(value)
-        )
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticMessagePoliticalActivismCause.length > 0 &&
-        !selectedArtisticMessagePoliticalActivismCause.every(value =>
-          artist["artisticMessage-politicalActivismCause"] && artist["artisticMessage-politicalActivismCause"].includes(value)
-        )
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticMessageCulturalCritique.length > 0 &&
-        !selectedArtisticMessageCulturalCritique.every(value =>
-          artist["artisticMessage-culturalCritique"] && artist["artisticMessage-culturalCritique"].includes(value)
-        )
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticMessageIdentityRepresentation.length > 0 &&
-        !selectedArtisticMessageIdentityRepresentation.every(value =>
-          artist["artisticMessage-identityRepresentation"] && artist["artisticMessage-identityRepresentation"].includes(value)
-        )
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedArtisticMessageEnvironmentalSustainability.length > 0 &&
-        !selectedArtisticMessageEnvironmentalSustainability.every(value =>
-          artist["artisticMessage-environmentalSustainability"] && artist["artisticMessage-environmentalSustainability"].includes(value)
-        )
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedAestheticsColorPalette.length > 0 &&
-        !selectedAestheticsColorPalette.includes(artist["aesthetics-colorPalette"])
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedAestheticsTexturePattern.length > 0 &&
-        !selectedAestheticsTexturePattern.includes(artist["aesthetics-texturePattern"])
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedAestheticsCompositionArrangement.length > 0 &&
-        !selectedAestheticsCompositionArrangement.includes(artist["aesthetics-compositionArrangement"])
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedAestheticsScaleProportion.length > 0 &&
-        !selectedAestheticsScaleProportion.includes(artist["aesthetics-scaleProportion"])
-      ) {
-        isPartialMatch = false;
-      }
-  
-      if (
-        selectedAestheticsVisualLanguage.length > 0 &&
-        !selectedAestheticsVisualLanguage.includes(artist["aesthetics-visualLanguage"])
-      ) {
-        isPartialMatch = false;
-      }
-  
-      // Check the length of each property before applying conditions
+      // Check if at least one property has a selection
       if (
         selectedArtisticPracticeMediums.length === 0 ||
         selectedArtisticPracticeGenreStyle.length === 0 ||
@@ -394,7 +280,64 @@ function createList() {
         selectedAestheticsScaleProportion.length === 0 ||
         selectedAestheticsVisualLanguage.length === 0
       ) {
-        // If no properties are selected, artists should not be included
+        // If at least one property has no selection, artists should not be included
+        isPartialMatch = false;
+      }
+  
+      // Check if selected properties match with the artist's properties
+      if (!selectedArtisticPracticeMediums.includes(artist["artisticPractice-mediums"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticPracticeGenreStyle.includes(artist["artisticPractice-genreStyle"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticPracticeTechniquesProcesses.includes(artist["artisticPractice-techniquesProcesses"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticPracticeThemesConcepts.includes(artist["artisticPractice-themesConcepts"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticMessageSocialCommentary.includes(artist["artisticMessage-socialCommentary"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticMessagePoliticalActivismCause.includes(artist["artisticMessage-politicalActivismCause"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticMessageCulturalCritique.includes(artist["artisticMessage-culturalCritique"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticMessageIdentityRepresentation.includes(artist["artisticMessage-identityRepresentation"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedArtisticMessageEnvironmentalSustainability.includes(artist["artisticMessage-environmentalSustainability"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedAestheticsColorPalette.includes(artist["aesthetics-colorPalette"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedAestheticsTexturePattern.includes(artist["aesthetics-texturePattern"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedAestheticsCompositionArrangement.includes(artist["aesthetics-compositionArrangement"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedAestheticsScaleProportion.includes(artist["aesthetics-scaleProportion"])) {
+        isPartialMatch = false;
+      }
+  
+      if (!selectedAestheticsVisualLanguage.includes(artist["aesthetics-visualLanguage"])) {
         isPartialMatch = false;
       }
   
