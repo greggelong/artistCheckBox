@@ -16,7 +16,7 @@ const artists = [
         "Electronic displays",
         "Posters",
       ],
-      "artisticPractice-genreStyle": "Conceptual art, installation art, contemporary art",
+      "artisticPractice-genreStyle": ["Conceptual art, installation art, contemporary art"],
       "artisticPractice-techniquesProcesses": [
         "Use of text, language, and typography in art",
         "Incorporating LED technology",
@@ -52,11 +52,11 @@ const artists = [
       "artisticMessage-environmentalSustainability": [
         "Limited focus, but some works may indirectly address these themes through societal critique",
       ],
-      "aesthetics-colorPalette": "Often monochromatic or limited color usage to emphasize the text",
-      "aesthetics-texturePattern": "Relies on the visual impact of text, lacking intricate patterns or textures",
-      "aesthetics-compositionArrangement": "Simple and direct compositions to highlight the text or message",
-      "aesthetics-scaleProportion": "Varies from small-scale posters to large-scale public installations",
-      "aesthetics-visualLanguage": "Primarily text-based, incorporating a wide variety of fonts and typography",
+      "aesthetics-colorPalette": ["Often monochromatic or limited color usage to emphasize the text"],
+      "aesthetics-texturePattern": ["Relies on the visual impact of text, lacking intricate patterns or textures"],
+      "aesthetics-compositionArrangement": ["Simple and direct compositions to highlight the text or message"],
+      "aesthetics-scaleProportion": ["Varies from small-scale posters to large-scale public installations"],
+      "aesthetics-visualLanguage": ["Primarily text-based, incorporating a wide variety of fonts and typography"],
     },
     // Add more artists with the same structure as above
     {
@@ -75,7 +75,7 @@ const artists = [
           "Drawing",
           "Installation",
         ],
-        "artisticPractice-genreStyle": "Contemporary art",
+        "artisticPractice-genreStyle": ["Contemporary art"],
         "artisticPractice-techniquesProcesses": [
           "Working with unconventional materials like blood, ice, and flowers",
           "Utilizing digital manipulation",
@@ -112,11 +112,11 @@ const artists = [
           "Addressing environmental concerns",
           "Highlighting the impact of human activity on the planet",
         ],
-        "aesthetics-colorPalette": "Varies depending on the artwork, often vibrant and bold colors",
-        "aesthetics-texturePattern": "Experimenting with textures and patterns, using materials like marble, bronze, and organic substances",
-        "aesthetics-compositionArrangement": "Thought-provoking and visually striking compositions, playing with scale, balance, and juxtaposition",
-        "aesthetics-scaleProportion": "Range from small-scale sculptures to large installations, exploring different proportions and scales",
-        "aesthetics-visualLanguage": "Combining elements of realism, abstraction, and symbolism to convey artistic message",
+        "aesthetics-colorPalette": ["Varies depending on the artwork, often vibrant and bold colors"],
+        "aesthetics-texturePattern": ["Experimenting with textures and patterns, using materials like marble, bronze, and organic substances"],
+        "aesthetics-compositionArrangement": ["Thought-provoking and visually striking compositions, playing with scale, balance, and juxtaposition"],
+        "aesthetics-scaleProportion": ["Range from small-scale sculptures to large installations, exploring different proportions and scales"],
+        "aesthetics-visualLanguage": ["Combining elements of realism, abstraction, and symbolism to convey artistic message"],
       },
 
 
@@ -138,7 +138,7 @@ const artists = [
           "Drawing",
           "Performance",
         ],
-        "artisticPractice-genreStyle": "Contemporary art, conceptual art",
+        "artisticPractice-genreStyle": ["Contemporary art, conceptual art"],
         "artisticPractice-techniquesProcesses": [
           "Diverse techniques and processes depending on the medium",
         ],
@@ -166,11 +166,11 @@ const artists = [
         "artisticMessage-environmentalSustainability": [
           "May touch upon environmental concerns indirectly through exploration of power dynamics and human impact",
         ],
-        "aesthetics-colorPalette": "Varies depending on the artwork, ranging from vibrant and bold to more subdued tones",
-        "aesthetics-texturePattern": "Incorporates a variety of textures and patterns depending on materials and techniques used",
-        "aesthetics-compositionArrangement": "Often dynamic compositions and arrangements evoking movement or tension",
-        "aesthetics-scaleProportion": "Can range from small-scale pieces to large installations",
-        "aesthetics-visualLanguage": "Characterized by rawness, symbolism, and a blend of figurative and abstract elements",
+        "aesthetics-colorPalette": ["Varies depending on the artwork, ranging from vibrant and bold to more subdued tones"],
+        "aesthetics-texturePattern": ["Incorporates a variety of textures and patterns depending on materials and techniques used"],
+        "aesthetics-compositionArrangement": ["Often dynamic compositions and arrangements evoking movement or tension"],
+        "aesthetics-scaleProportion": ["Can range from small-scale pieces to large installations"],
+        "aesthetics-visualLanguage": ["Characterized by rawness, symbolism, and a blend of figurative and abstract elements"],
       },
   ];
       
