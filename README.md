@@ -8,7 +8,7 @@ as the animals are chosen on the basis of habitat and color and number of legs
 the createList( ) function 
 This code checks if any of the selected properties match with the artist, and if so, the artist is included in the matchingArtists array. This allows for artists to match with any selected property rather than all selected properties.
 
-
+This is the all array branch
 
 the createList2() function 
 
