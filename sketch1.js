@@ -33,6 +33,7 @@ let selectedAestheticsVisualLanguage = [];
 let mybutton; //inclusive matching
 let mybutton2; //strict matching
 let mybutton3; // partial matching with optional Properties
+let mybutton4; // counter
 
 function setup() {
   noCanvas();
@@ -195,6 +196,10 @@ function setup() {
 
   mybutton3 = createButton("Loose Matching Artists");
   mybutton3.mouseClicked(createList3);
+
+  
+  mybutton4 = createButton("Inclusive Matching with Counter")
+  mybutton4.mouseClicked(createList4)
 }
 
 function createCheckboxOptions(options, selected, label) {
@@ -528,93 +533,113 @@ function createList3() {
   }
 }
 
-/*
 
-function createList2() {
-  // Create an array to store artists that match all selected criteria
+function createList4() {
+  //**Inclusive Matching:** Any selected property allows for inclusion
   let matchingArtists = [];
 
   for (const artist of artists) {
-    // Check if all selected properties match with the artist
+    let counter =0;
+    // change below to if statements and increment counter each time one is checked with for each  and arrow function with a conditional  then append it to the artist name
     if (
-      selectedArtisticPracticeMediums.every(
-        (value) =>
-          artist["artisticPractice-mediums"] &&
-          artist["artisticPractice-mediums"].includes(value)
-      ) &&
-      selectedArtisticPracticeGenreStyle.includes(
-        artist["artisticPractice-genreStyle"]
-      ) &&
-      selectedArtisticPracticeTechniquesProcesses.every(
+      selectedArtisticPracticeMediums.some((value) =>
+        artist["artisticPractice-mediums"].includes(value)
+      ) ) {selectedArtisticPracticeMediums.forEach((value) => {if (artist["artisticPractice-mediums"].includes(value)){counter++}})}
+    if (
+      selectedArtisticPracticeGenreStyle.some(
+        (value) => artist["artisticPractice-genreStyle"].includes(value) // changed from string to array
+      )) {selectedArtisticPracticeGenreStyle.forEach((value) => {if (artist["artisticPractice-genreStyle"].includes(value)){counter++}})}
+    if (
+      selectedArtisticPracticeTechniquesProcesses.some(
         (value) =>
           artist["artisticPractice-techniquesProcesses"] &&
           artist["artisticPractice-techniquesProcesses"].includes(value)
-      ) &&
-      selectedArtisticPracticeThemesConcepts.every(
+      )) {selectedArtisticPracticeTechniquesProcesses.forEach((value) => {if (artist["artisticPractice-techniquesProcesses"].includes(value)){counter++}})}
+    if (
+      selectedArtisticPracticeThemesConcepts.some(
         (value) =>
           artist["artisticPractice-themesConcepts"] &&
           artist["artisticPractice-themesConcepts"].includes(value)
-      ) &&
-      //selectedArtisticPracticeInfluencesReferences.every(value => artist["artisticPractice-influencesReferences"] && artist["artisticPractice-influencesReferences"].includes(value)) &&
-      selectedArtisticMessageSocialCommentary.every(
+      ))  {selectedArtisticPracticeThemesConcepts.forEach((value) => {if (artist["artisticPractice-themesConcepts"].includes(value)){counter++}})}
+     if (
+      selectedArtisticMessageSocialCommentary.some(
         (value) =>
           artist["artisticMessage-socialCommentary"] &&
           artist["artisticMessage-socialCommentary"].includes(value)
-      ) &&
-      selectedArtisticMessagePoliticalActivismCause.every(
+      ))  {selectedArtisticMessageSocialCommentary.forEach((value) => {if (artist["artisticMessage-socialCommentary"].includes(value)){counter++}})}
+      if (
+      selectedArtisticMessagePoliticalActivismCause.some(
         (value) =>
           artist["artisticMessage-politicalActivismCause"] &&
           artist["artisticMessage-politicalActivismCause"].includes(value)
-      ) &&
-      selectedArtisticMessageCulturalCritique.every(
+      )) {selectedArtisticMessagePoliticalActivismCause.forEach((value) => {if (artist["artisticMessage-politicalActivismCause"].includes(value)){counter++}})}
+      if (
+      selectedArtisticMessageCulturalCritique.some(
         (value) =>
           artist["artisticMessage-culturalCritique"] &&
           artist["artisticMessage-culturalCritique"].includes(value)
-      ) &&
-      selectedArtisticMessageIdentityRepresentation.every(
+      )) {selectedArtisticMessageCulturalCritique.forEach((value) => {if (artist["artisticMessage-culturalCritique"].includes(value)){counter++}})}
+      if (
+      selectedArtisticMessageIdentityRepresentation.some(
         (value) =>
           artist["artisticMessage-identityRepresentation"] &&
           artist["artisticMessage-identityRepresentation"].includes(value)
-      ) &&
-      selectedArtisticMessageEnvironmentalSustainability.every(
+      ) )  {selectedArtisticMessageIdentityRepresentation.forEach((value) => {if (artist["artisticMessage-identityRepresentation"].includes(value)){counter++}})}
+      if (
+      selectedArtisticMessageEnvironmentalSustainability.some(
         (value) =>
           artist["artisticMessage-environmentalSustainability"] &&
           artist["artisticMessage-environmentalSustainability"].includes(value)
-      ) &&
-      selectedAestheticsColorPalette.includes(
-        artist["aesthetics-colorPalette"]
-      ) && /// these use include because in the data they are not arrays but strings
-      selectedAestheticsTexturePattern.includes(
-        artist["aesthetics-texturePattern"]
-      ) &&
-      selectedAestheticsCompositionArrangement.includes(
-        artist["aesthetics-compositionArrangement"]
-      ) &&
-      selectedAestheticsScaleProportion.includes(
-        artist["aesthetics-scaleProportion"]
-      ) &&
-      selectedAestheticsVisualLanguage.includes(
-        artist["aesthetics-visualLanguage"]
-      )
-    ) {
-      matchingArtists.push(artist);
+      ))  {selectedArtisticMessageEnvironmentalSustainability.forEach((value) => {if (artist["artisticMessage-environmentalSustainability"].includes(value)){counter++}})}
+      if (
+      selectedAestheticsColorPalette.some(
+        (value) =>
+          artist["aesthetics-colorPalette"] &&
+          artist["aesthetics-colorPalette"].includes(value)
+      ))  {selectedAestheticsColorPalette.forEach((value) => {if (artist["aesthetics-colorPalette"].includes(value)){counter++}})}
+      if (
+      selectedAestheticsTexturePattern.some(
+        (value) =>
+          artist["aesthetics-texturePattern"] &&
+          artist["aesthetics-texturePattern"].includes(value)
+      ))  {selectedAestheticsTexturePattern.forEach((value) => {if (artist["aesthetics-texturePattern"].includes(value)){counter++}})}
+      if (
+      selectedAestheticsCompositionArrangement.some(
+        (value) =>
+          artist["aesthetics-compositionArrangement"] &&
+          artist["aesthetics-compositionArrangement"].includes(value)
+      ))  {selectedAestheticsCompositionArrangement.forEach((value) => {if (artist["aesthetics-compositionArrangement"].includes(value)){counter++}})}
+      if (
+      selectedAestheticsScaleProportion.some(
+        (value) =>
+          artist["aesthetics-scaleProportion"] &&
+          artist["aesthetics-scaleProportion"].includes(value)
+      ))  {selectedAestheticsScaleProportion.forEach((value) => {if (artist["aesthetics-scaleProportion"].includes(value)){counter++}})}
+      if (
+
+      selectedAestheticsVisualLanguage.some(
+        (value) =>
+          artist["aesthetics-visualLanguage"] &&
+          artist["aesthetics-visualLanguage"].includes(value)
+      ))  {selectedAestheticsVisualLanguage.forEach((value) => {if (artist["aesthetics-visualLanguage"].includes(value)){counter++}})}
+     {
+      if(counter>0){
+      matchingArtists.push(artist.personalInformation.name.concat(" ",counter));
+      }
     }
   }
 
-  // Display the list of matching artists
   if (matchingArtists.length > 0) {
     let artistList = createElement("ul");
     for (const artist of matchingArtists) {
-      let listItem = createElement("li", artist.personalInformation.name);
+      let listItem = createElement("li", artist);
       listItem.parent(artistList);
     }
   } else {
     let noMatchMessage = createElement(
       "p",
-      "No artists match all the selected criteria."
+      "No artists match the selected criteria."
     );
     noMatchMessage.parent(document.body);
   }
 }
- 
-*/
